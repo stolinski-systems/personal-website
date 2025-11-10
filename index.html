@@ -1,0 +1,663 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<meta name="description"
+  content="Portfolio of Patrick Stolinski — Aviation, Robotics, and Engineering Systems. Flight instructor, founder, and engineer specializing in technical design and leadership.">
+<meta name="keywords"
+  content="Patrick Stolinski, aviation, robotics, engineering, NetJets, PROTO Robotics, flight instructor, embedded systems, web design, automation, education">
+
+<!-- Open Graph for LinkedIn/Facebook -->
+<meta property="og:title" content="Patrick Stolinski">
+<meta property="og:description" content="Engineering precision and imagination — building systems that fly.">
+<meta property="og:image" content="https://patrickstolinski.com/img/preview.jpg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://patrickstolinski.com">
+
+<!-- Analytics -->
+<!-- Example: Google tag (replace with your own ID) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXX');
+</script>
+
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Patrick Stolinski</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+
+<body>
+  <!-- NAV -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <h2><i class="fas fa-robot"></i> Patrick Stolinski</h2>
+      </div>
+      <ul class="nav-menu">
+        <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+        <li class="nav-item"><a href="#projects" class="nav-link">By Design: My Work</a></li>
+        <li class="nav-item"><a href="#experience" class="nav-link">Experience</a></li>
+        <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="hamburger"><span class="bar"></span><span class="bar"></span><span class="bar"></span></div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <div class="video-background">
+      <!-- If the video file exists it will play; otherwise the CSS gradient stays visible -->
+      <video autoplay muted playsinline webkit-playsinline loop preload="auto" poster="img/drone-poster.jpg">
+        <source src="drone-footage.mp4" type="video/mp4" />
+      </video>
+      <div class="video-overlay"></div>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1 class="hero-title">
+          Builder. Innovator. Entrepreneur.
+          <span class="highlight">Engineering systems and teams that fly.</span>
+        </h1>
+        <p class="hero-subtitle">
+          Flight Instructor. Founder. Engineer. I build products that turn complexity into clarity and teams into
+          engines of innovation.
+        </p>
+        <div class="hero-buttons">
+          <a href="#projects" class="btn btn-primary">See the Work</a>
+          <a href="#about" class="btn btn-secondary">About Patrick</a>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <div class="scroll-text">Scroll to explore</div>
+      <div class="scroll-arrow"><i class="fas fa-chevron-down"></i></div>
+    </div>
+  </section>
+
+  <!-- APPLE-STYLE SCROLL SECTIONS -->
+  <div class="scroll-container">
+    <section id="about" class="scroll-section about-section">
+      <div class="section-content">
+        <div class="scroll-text">
+          <h2 class="scroll-title">Solving Problems That Matter</h2>
+          <p class="scroll-subtitle">Through excellence in all that I do.</p>
+          <p class="scroll-description">I'm an instructor pilot, engineer, and crazy about building things. I care about
+            creating systems and teams that make our world excited about our future. I am passionate about sparking our
+            next generation's interest in STEM, have a love for aviation, and believe it's a privilege to do the work
+            that I do.</p>
+        </div>
+        <div class="scroll-visual">
+          <div class="portrait-card">
+            <img src="img/patrick.jpg" alt="Portrait of Patrick Stolinski">
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="scroll-section journey-section">
+      <div class="section-content">
+        <div class="scroll-text">
+          <h2 class="scroll-title">Where Passion Meets Innovation</h2>
+          <p class="scroll-subtitle">A background in private aviation and robotics engineering. Startup focused.</p>
+          <p class="scroll-description">Whether building digital tools for pilots or hardware products for students, I
+            chase one standard—operational excellence through passion for my work.</p>
+        </div>
+        <div class="scroll-visual">
+          <div class="innovation-image">
+            <img src="img/innovation.jpg" alt="Patrick speaking at a public event.">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="scroll-section skills-section">
+      <div class="section-content">
+        <div class="scroll-text">
+          <h2 class="scroll-title">Capabilities & Certifications</h2>
+          <p class="scroll-subtitle">Aviation, automation, and engineered systems.</p>
+          <p class="scroll-description">A blend of flight experience, embedded control, and product
+            engineering—connected by a design philosophy rooted in reliability, elegance, and results.</p>
+        </div>
+        <div class="scroll-visual">
+          <div class="skills-grid">
+            <div class="skill-item"><i class="fas fa-plane-departure"></i>
+              <h4>Commercial Pilot / CFI</h4>
+              <p>Flight Instructor & Commercial Pilot Certificates.</p>
+            </div>
+            <div class="skill-item"><i class="fas fa-microchip"></i>
+              <h4>Artificial Intelligence & Systems Design</h4>
+              <p>Leveraging today's tools and methods to build tomorrow's solutions .</p>
+            </div>
+            <div class="skill-item"><i class="fas fa-diagram-project"></i>
+              <h4>UNL - Robotics Engineering</h4>
+              <p>A background in computer, mechanical, and electrical engineering.</p>
+            </div>
+            <div class="skill-item"><i class="fas fa-sitemap"></i>
+              <h4>Team Leadership</h4>
+              <p>A history of building teams of people to solve problems.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="scroll-section stats-section">
+      <div class="section-content">
+        <div class="scroll-text">
+          <h2 class="scroll-title">Impact</h2>
+          <p class="scroll-subtitle">Quantifiable outcomes across aviation, engineering, and outreach.</p>
+        </div>
+
+        <div class="scroll-visual">
+          <div class="stats-display">
+            <div class="stat-item">
+              <div class="stat-number" data-target="419">0</div>
+              <div class="stat-label">Flight Hours Logged</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number" data-target="3.97">0</div>
+              <div class="stat-label">University GPA</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number" data-target="8">0</div>
+              <div class="stat-label">FAA Ratings</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number" data-target="250">0</div>
+              <div class="stat-label">Students Reached Through PROTO Robotics</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number" data-target="20">0</div>
+              <div class="stat-label">Years on Earth</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+  </div>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="projects">
+    <div class="container">
+      <div class="section-header">
+        <h2>By Design: My Work in 2025</h2>
+        <p>From web platforms to hardware systems—projects that merge creativity, discipline, and measurable impact.</p>
+      </div>
+
+      <div class="projects-grid">
+        <!-- TeamManager -->
+        <article class="project-card" data-project="teammanager">
+          <div class="project-image" style="--img:url('img/teammanager.jpg')">
+            <div class="project-placeholder"><i class="fas fa-people-group"></i>
+              <p>TeamManager</p>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3>TeamManager for PROTO</h3>
+            <p>Role-based operations suite for PROTO Robotics. Designed for scale with SSO, queue logic, and a full
+              email automation center—built in Flask with a refined, responsive UI.</p>
+            <div class="project-tags"><span class="tag">Flask</span><span class="tag">SQLite</span><span
+                class="tag">SSO</span></div>
+            <a href="#" class="project-link">Learn More <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <!-- Aircraft Sales -->
+        <article class="project-card" data-project="aircraftsales">
+          <div class="project-image" style="--img:url('img/aircraft-sales.jpg')">
+            <div class="project-placeholder"><i class="fas fa-plane"></i>
+              <p>Aircraft Sales</p>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3>Aircraft Sales Website</h3>
+            <p>Digital platform for business jet brokerage. Custom WordPress system with dynamic filters, ACF-driven
+              listings, and real-time aircraft comparison tools.</p>
+            <div class="project-tags"><span class="tag">WordPress</span><span class="tag">Divi</span><span
+                class="tag">ACF</span></div>
+            <a href="#" class="project-link">Learn More <i class="fas fa-arrow-right"></i></a>
+            <a href="https://tangomike.aero" target="_blank" rel="noopener noreferrer"
+                class="btn small website-btn" data-nomodal>
+                Visit Website
+              </a>
+          </div>
+        </article>
+
+        <!-- FlightFitters -->
+        <article class="project-card" data-project="flightfitters">
+          <div class="project-image" style="--img:url('img/flightfitters.jpg')">
+            <div class="project-placeholder"><i class="fas fa-camera"></i>
+              <p>FlightFitters</p>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3>FlightFitters (Part 107)</h3>
+            <p>Drone operations company offering aerial capture, 3D modeling, and photogrammetry services. FAA Part 107
+              certified and client-ready for industrial and creative work.</p>
+            <div class="project-tags">
+              <span class="tag">Part 107</span>
+              <span class="tag">Drone</span>
+              <span class="tag">First Responders</span>
+            </div>
+            <div class="project-buttons">
+              <a href="#" class="project-link">Learn More <i class="fas fa-arrow-right"></i></a>
+              <a href="https://flightfitters.com" target="_blank" rel="noopener noreferrer"
+                class="btn small website-btn" data-nomodal>
+                Visit Website
+              </a>
+            </div>
+          </div>
+        </article>
+
+
+        <!-- RFID Lock -->
+        <article class="project-card" data-project="rfidaccess">
+          <div class="project-image" style="--img:url('img/prototeam.jpeg')">
+            <div class="project-placeholder"><i class="fas fa-lock"></i>
+              <p>RFID Access</p>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3>RFID Door Lock for PROTO</h3>
+            <p>Secure access system built on Raspberry Pi. Integrates Proxmark3, servo-driven mechanics, and real-time
+              control via Python hardware interface.</p>
+            <div class="project-tags"><span class="tag">Raspberry Pi</span><span class="tag">Hardware</span><span
+                class="tag">Security</span></div>
+            <a href="#" class="project-link">Learn More <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <!-- Photogrammetry -->
+        <article class="project-card" data-project="photogrammetry">
+          <div class="project-image" style="--img:url('img/photogrammetry.jpg')">
+            <div class="project-placeholder"><i class="fas fa-cubes"></i>
+              <p>Photogrammetry</p>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3>Drone Photogrammetry</h3>
+            <p>High-resolution neighborhood mapping using drone photogrammetry and LiDAR workflows. Generated accurate
+              3D models and survey-grade data deliverables.</p>
+            <div class="project-tags"><span class="tag">3D</span><span class="tag">Point Clouds</span><span
+                class="tag">GIS</span></div>
+            <a href="#" class="project-link">Learn More <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <!-- Carburetor -->
+        <article class="project-card" data-project="carburetor">
+          <div class="project-image" style="--img:url('img/carb.png')">
+            <div class="project-placeholder"><i class="fas fa-screwdriver-wrench"></i>
+              <p>Carburetor Model</p>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3>3D-Printed Carburetor</h3>
+            <p>Functional 3D-printed carburetor prototype exploring airflow, metering, and additive manufacturing
+              tolerances. Designed for teaching and R&D demonstration.</p>
+            <div class="project-tags"><span class="tag">3D Print</span><span class="tag">Mechanisms</span></div>
+            <a href="#" class="project-link">Learn More <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="brands">
+    <div class="container">
+      <h3>Brands & Organizations</h3>
+      <div class="brands-logos">
+        <a href="https://www.netjets.com" target="_blank" rel="noopener noreferrer">
+          <img src="img/netjets.png" alt="NetJets" style="width:140px;">
+        </a>
+        <a href="https://tangomike.aero" target="_blank" rel="noopener noreferrer">
+          <img src="img/tangomike.png" alt="Tango Mike Aviation" style="width:180px;">
+        </a>
+        <a href="https://hdrinc.com" target="_blank" rel="noopener noreferrer">
+          <img src="img/hdr.png" alt="HDR Engineering" style="width:120px;">
+        </a>
+        <a href="https://www.td2co.com" target="_blank" rel="noopener noreferrer">
+          <img src="img/td2.png" alt="TD2 Engineering" style="width:140px;">
+        </a>
+        <a href="https://www.unl.edu" target="_blank" rel="noopener noreferrer">
+          <img src="img/unl.png" alt="University of Nebraska–Lincoln" style="width:150px;">
+        </a>
+        <a id="experience" href="https://protorobotics.org" target="_blank" rel="noopener noreferrer">
+          <img src="img/proto.png" alt="PROTO Robotics" style="width:200px;">
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <div class="timeline">
+
+    <!-- PROTO Robotics (Luxury Modal) -->
+    <div class="timeline-item luxury-brand" data-brand="brand0">
+      <div class="timeline-marker luxury-marker"></div>
+      <div class="timeline-content luxury-content">
+        <div class="brand-logo"><i class="fas fa-robot"></i></div>
+        <h3>President &amp;<br>Co-Founder</h3>
+        <h4>PROTO Robotics LLC</h4>
+        <span class="timeline-date">March 2024 – Present</span>
+        <p>Leading a 40-member student team building robotics kits, outreach curriculum, and cloud systems that inspire
+          K-12 students to explore engineering and aviation. Solving Nebraska’s STEM education challenges through
+          innovation.</p>
+        <div class="brand-tags">
+          <span class="brand-tag">Leadership</span>
+          <span class="brand-tag">STEM Outreach</span>
+          <span class="brand-tag">Startup</span>
+        </div>
+        <button class="brand-learn-more">Learn More <i class="fas fa-arrow-right"></i></button>
+      </div>
+    </div>
+
+
+    <!-- NetJets (Luxury Modal) -->
+    <div class="timeline-item luxury-brand" data-brand="brand1">
+      <div class="timeline-marker luxury-marker"></div>
+      <div class="timeline-content luxury-content">
+        <div class="brand-logo"><i class="fas fa-plane-departure"></i></div>
+        <h3>Flight Technical<br>Programs Intern</h3>
+        <h4>NetJets Aviation, Inc.</h4>
+        <span class="timeline-date">May 2025 – August 2025</span>
+        <p>Designed and validated instrument procedures in business jet simulators. Developed digital ops tooling that
+          improved efficiency across flight technical teams.</p>
+        <div class="brand-tags">
+          <span class="brand-tag">Business Aviation</span>
+          <span class="brand-tag">Data Systems</span>
+          <span class="brand-tag">Flight Ops</span>
+        </div>
+        <button class="brand-learn-more">Learn More <i class="fas fa-arrow-right"></i></button>
+      </div>
+    </div>
+
+    <div class="timeline-item milestone">
+      <div class="timeline-marker milestone-marker"></div>
+      <div class="timeline-content">
+        <div class="timeline-image">
+          <img src="img/cap.jpeg" alt="Civil Air Patrol Instructor Pilot">
+        </div>
+        <h3>Civil Air Patrol Instructor Pilot</h3>
+        <span class="timeline-date">March 2025</span>
+        <p>Appointment as a Civil Air Patrol IP, providing instruction for CAP Aircrew Members towards CAP's Air Force
+          Assigned Missions (AFAMs) in Cessna 182 & 172 aircraft.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item milestone">
+      <div class="timeline-marker milestone-marker"></div>
+      <div class="timeline-content">
+        <div class="timeline-image">
+          <img src="img/cfi.jpeg" alt="Certified Flight Instructor">
+        </div>
+        <h3>Certified Flight Instructor (CFI)</h3>
+        <span class="timeline-date">January 2025</span>
+        <p>Achieved FAA Flight Instructor Certificate, earning the privilege to teach people how to fly airplanes.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item milestone">
+      <div class="timeline-marker milestone-marker"></div>
+      <div class="timeline-content">
+        <div class="timeline-image">
+          <img src="img/cmel.jpeg" alt="Commercial Multi-Engine Land">
+        </div>
+        <h3>Commercial Multi-Engine Rating</h3>
+        <span class="timeline-date">August 2024</span>
+        <p>Earned FAA Commercial Multi-Engine Rating.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item milestone">
+      <div class="timeline-marker milestone-marker"></div>
+      <div class="timeline-content">
+        <div class="timeline-image">
+          <img src="img/csel.jpeg" alt="Commercial Single Engine Land">
+        </div>
+        <h3>Commercial Pilot Certificate</h3>
+        <span class="timeline-date">June 2024</span>
+        <p>Earned FAA Commercial Pilot Certificate — Airplane Single Engine Land, demonstrating advanced aeronautical
+          decision-making and operational precision.</p>
+      </div>
+    </div>
+
+    <!-- HDR -->
+    <div class="timeline-item luxury-brand" data-brand="brand2">
+      <div class="timeline-marker luxury-marker"></div>
+      <div class="timeline-content luxury-content">
+        <div class="brand-logo"><i class="fas fa-industry"></i></div>
+        <h3>Airfield Design Intern</h3>
+        <h4>HDR Engineering, Inc.</h4>
+        <span class="timeline-date">May 2024 – August 2024</span>
+        <p>Supported DOD and FAA airfield programs. Streamlined CAD workflows and collaborated across civil design
+          engineering disciplines.</p>
+        <div class="brand-tags">
+          <span class="brand-tag">Airfields</span>
+          <span class="brand-tag">FAA</span>
+          <span class="brand-tag">DOD</span>
+        </div>
+        <button class="brand-learn-more">Learn More <i class="fas fa-arrow-right"></i></button>
+      </div>
+    </div>
+
+    <div class="timeline-item milestone">
+      <div class="timeline-marker milestone-marker"></div>
+      <div class="timeline-content">
+        <div class="timeline-image">
+          <img src="img/ira.jpeg" alt="Instrument Rating Airplane">
+        </div>
+        <h3>Instrument Rating</h3>
+        <span class="timeline-date">January 2024</span>
+        <p>Earned FAA Instrument Rating.</p>
+      </div>
+    </div>
+
+    <!-- TD2 -->
+    <div class="timeline-item luxury-brand" data-brand="brand3">
+      <div class="timeline-marker luxury-marker"></div>
+      <div class="timeline-content luxury-content">
+        <div class="brand-logo"><i class="fas fa-up-right-and-down-left-from-center"></i></div>
+        <h3>UAS / Survey Intern</h3>
+        <h4>TD2 Engineering, Inc.</h4>
+        <span class="timeline-date">May 2023 – August 2023</span>
+        <p>Executed LiDAR and photogrammetry missions for infrastructure projects. Delivered survey-grade data products
+          and refined data pipelines from field to office.</p>
+        <div class="brand-tags">
+          <span class="brand-tag">UAS</span>
+          <span class="brand-tag">LiDAR</span>
+        </div>
+        <button class="brand-learn-more">Learn More <i class="fas fa-arrow-right"></i></button>
+      </div>
+    </div>
+
+    <div class="timeline-item milestone">
+      <div class="timeline-marker milestone-marker"></div>
+      <div class="timeline-content">
+        <h3>High School Graduation</h3>
+        <span class="timeline-date">May 2023</span>
+        <p>Graduated from Millard North High School (Omaha, NE).</p>
+      </div>
+    </div>
+
+    <div class="timeline-item milestone">
+      <div class="timeline-marker milestone-marker"></div>
+      <div class="timeline-content">
+        <div class="timeline-image">
+          <img src="img/ases.jpeg" alt="Seaplane Rating">
+        </div>
+        <h3>Seaplane Rating</h3>
+        <span class="timeline-date">December 2022</span>
+        <p>Earned FAA Airplane Single Engine Sea Rating.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item milestone">
+      <div class="timeline-marker milestone-marker"></div>
+      <div class="timeline-content">
+        <div class="timeline-image">
+          <img src="img/asel.jpeg" alt="Private Pilot Certificate">
+        </div>
+        <h3>Earned Private Pilot Certificate</h3>
+        <span class="timeline-date">May 2022</span>
+        <p>Earned FAA Private Pilot Certificate (Airplane Single Engine Land).</p>
+      </div>
+    </div>
+
+    <div class="timeline-item milestone">
+      <div class="timeline-marker milestone-marker"></div>
+      <div class="timeline-content">
+        <div class="timeline-image">
+          <img src="img/solo.jpeg" alt="First Solo">
+        </div>
+        <h3>First Solo</h3>
+        <span class="timeline-date">July 2021</span>
+        <p>First solo flight in an airplane.</p>
+      </div>
+    </div>
+
+
+
+
+  </div>
+
+
+  <!-- MODAL (content filled by script) -->
+  <div id="brand-modal" class="brand-modal">
+    <div class="modal-overlay"></div>
+    <div class="modal-content">
+
+      <button type="button" class="modal-close" aria-label="Close">&times;</button>
+      <div class="modal-header">
+        <div class="modal-brand-logo"><i class="fas fa-gem"></i></div>
+        <h2 class="modal-title">Role Details</h2>
+        <h3 class="modal-company">Company</h3>
+        <p class="modal-location"><i class="fas fa-location-dot"></i> Location</p>
+      </div>
+
+      <div class="modal-body">
+        <div class="modal-image">
+          <div class="image-placeholder">
+            <i class="fas fa-plane"></i>
+            <p>Experience Highlight</p>
+          </div>
+        </div>
+        <div class="modal-details">
+          <h4>Key Achievements</h4>
+          <ul></ul>
+          <h4>Technologies & Skills</h4>
+          <div class="modal-skills"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECT MODAL (content filled by script) -->
+  <div id="project-modal" class="project-modal">
+    <div class="modal-overlay"></div>
+    <div class="modal-content">
+      <button type="button" class="modal-close" aria-label="Close">&times;</button>
+
+      <div class="modal-header">
+        <div class="modal-project-logo"><i class="fas fa-rocket"></i></div>
+        <h2 class="modal-title">Project Title</h2>
+        <h3 class="modal-subtitle">Subtitle</h3>
+      </div>
+
+      <div class="modal-body">
+        <div class="modal-image">
+          <div class="image-placeholder">
+            <i class="fas fa-image"></i>
+            <p>Project Preview</p>
+          </div>
+        </div>
+        <div class="modal-details">
+          <h4>Overview</h4>
+          <p class="modal-description"></p>
+          <h4>Key Features</h4>
+          <ul class="modal-features"></ul>
+          <h4>Technologies Used</h4>
+          <div class="modal-skills"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <div class="section-header">
+        <h2>Let’s Build What’s Next</h2>
+        <p>Exploring collaborations at the intersection of aviation, robotics, and engineering systems.</p>
+
+      </div>
+      <div class="contact-content">
+        <div class="contact-info">
+          <h3>Get In Touch</h3>
+          <p>I’m always looking to collaborate on meaningful technology—projects that demand precision, creativity, and
+            leadership.</p>
+          <div class="contact-methods">
+            <a class="contact-method" href="mailto:patrick@stolinski.org" target="_blank" rel="noopener noreferrer">
+              <i class="fas fa-envelope"></i><span>patrick@stolinski.org</span>
+            </a>
+            <a class="contact-method" href="https://www.linkedin.com/in/pstolinski" target="_blank"
+              rel="noopener noreferrer">
+              <i class="fab fa-linkedin"></i><span>LinkedIn</span>
+            </a>
+            <a class="contact-method" href="https://github.com/pstolinski" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-github"></i><span>GitHub</span>
+            </a>
+          </div>
+
+        </div>
+        <div class="contact-form">
+          <div class="image-placeholder">
+            <img src="img/ps.jpg" alt="Patrick">
+            <p style="margin-top:10px; color:#666; font-size:0.95em;">
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-text">
+          <p>&copy; 2025 Patrick Stolinski</p>
+        </div>
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/in/pstolinski" class="social-link" target="_blank" rel="noopener noreferrer"
+            aria-label="LinkedIn">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="https://github.com/pstolinski" class="social-link" target="_blank" rel="noopener noreferrer"
+            aria-label="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <script src="script.js"></script>
+</body>
+
+</html>
