@@ -14,59 +14,9 @@ if (hamburger && navMenu) {
   );
 }
 
-// Disable snap behavior on small screens (mobile/touch devices)
-const isMobile = window.matchMedia("(max-width: 768px)").matches ||
-  'ontouchstart' in window;
 
-if (isMobile) {
-  document.documentElement.style.scrollSnapType = "none"; // disable snapping
-  document.body.classList.add("mobile-mode");
-}
-
-
-// Smooth anchor scroll
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    const id = a.getAttribute('href');
-    if (!id || id === '#') return;
-    const target = document.querySelector(id);
-    if (target) {
-      e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  });
-});
-
-// Navbar style on scroll
-window.addEventListener('scroll', () => {
-  const nav = document.querySelector('.navbar');
-  if (!nav) return;
-  if (window.scrollY > 50) {
-    nav.style.background = 'rgba(255,255,255,0.98)';
-    nav.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
-  } else {
-    nav.style.background = 'rgba(255,255,255,0.95)';
-    nav.style.boxShadow = 'none';
-  }
-});
-
-// Intersection animations
-const io = new IntersectionObserver(
-  entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add('animate');
-    });
-  },
-  { threshold: 0.2 }
-);
-
-// Tell the observer what to watch
-const ioTargets = document.querySelectorAll(
-  '.scroll-title, .scroll-subtitle, .scroll-description, ' +
-  '.floating-card, .journey-path, .skills-grid, .stats-display, .innovation-image'
-);
-ioTargets.forEach(el => io.observe(el));
-
+// Detect phones/tablets (global)
+const isMobile = window.matchMedia("(max-width: 768px)").matches || 'ontouchstart' in window;
 
 // Apple-style cross-fade
 const scrollContainer = document.querySelector('.scroll-container');
@@ -78,7 +28,6 @@ let rafId = null;
 
 function updatePanels() {
   if (!sections.length) return;
-
   const vh = window.innerHeight;
   const scrollY = window.scrollY;
 
@@ -86,26 +35,20 @@ function updatePanels() {
     const rect = sec.getBoundingClientRect();
     const center = rect.top + rect.height / 2;
     const dist = Math.abs(center - vh / 2);
-    let ratio = 1 - dist / (vh * 0.8); // slightly slower fade (0.75 → 0.8)
+    let ratio = 1 - dist / (vh * 0.8);
     ratio = Math.max(0, Math.min(1, ratio));
 
-    // --- keep first section visible until user scrolls halfway past it ---
     if (i === 0 && scrollY < vh * 0.9) ratio = 1;
+    if (i === sections.length - 1 && scrollY + vh > document.body.scrollHeight - vh * 0.3) ratio = 1;
 
-    // --- keep final section visible when reaching bottom ---
-    if (i === sections.length - 1 && scrollY + vh > scrollEnd - vh * 0.3) ratio = 1;
-
-    // --- apply transforms ---
-    const y = (1 - ratio) * 50; // slightly smaller vertical offset
-    const s = 0.97 + ratio * 0.03; // subtle scale range
+    const y = (1 - ratio) * 50;
+    const s = 0.97 + ratio * 0.03;
 
     sec.style.opacity = ratio.toFixed(3);
     sec.style.transform = `translateY(${y}px) scale(${s})`;
     sec.style.zIndex = String(100 + Math.round(ratio * 100) + i);
   });
 }
-
-
 
 function queueUpdate() {
   if (rafId) return;
@@ -115,105 +58,87 @@ function queueUpdate() {
   });
 }
 
-window.addEventListener('load', () => {
-  setTimeout(updatePanels, 200);
-});
-
-window.addEventListener('DOMContentLoaded', () => {
-  if (sections[0]) {
-    sections[0].style.opacity = '1';
-    sections[0].style.transform = 'none';
-  }
-});
-
-
-
+window.addEventListener('load', () => setTimeout(updatePanels, 200));
 window.addEventListener('resize', queueUpdate);
 window.addEventListener('scroll', queueUpdate);
 
-// ---------- Smooth Magnetic Snap-to-Center Logic (Apple-like Improved) ----------
-let lastScrollY = window.scrollY;
-let lastSnapY = window.scrollY;
-let scrollVelocity = 0;
-let lastTime = performance.now();
-let snapTimer = null;
-let animatingSnap = false;
+// ✅ Stop snapping on mobile
+if (isMobile) {
+  document.documentElement.style.scrollSnapType = "none";
+  document.body.classList.add("mobile-mode");
+  console.log("Mobile mode: fancy scroll disabled");
+} else {
+  // ---------- Smooth Magnetic Snap-to-Center Logic ----------
+  let activeIndex = 0;
+  let isSnapping = false;
+  let lastScrollTime = performance.now();
+  let cumulativeScroll = 0;
 
-// use the scrollContainer already declared above
-const scrollEnd = scrollContainer
-  ? scrollContainer.offsetTop + scrollContainer.offsetHeight
-  : Infinity;
+  const SNAP_THRESHOLD = window.innerHeight * 0.18;
+  const SNAP_TIMEOUT = 120;
+  const scrollEnd = scrollContainer
+    ? scrollContainer.offsetTop + scrollContainer.offsetHeight
+    : Infinity;
 
-// reuse already-declared 'sections' from Apple cross-fade
-const snapSections = sections;
+  function smoothScrollTo(targetY, duration = 1000) {
+    const startY = window.scrollY;
+    const distance = targetY - startY;
+    const startTime = performance.now();
 
-const SNAP_GAP = window.innerHeight * 0.2; // must scroll 20% of viewport before snapping again
-
-// ---- Smooth easing animation ----
-function smoothScrollTo(targetY, duration = 1000, overshoot = 0) {
-  const startY = window.scrollY;
-  const distance = targetY - startY + overshoot;
-  const startTime = performance.now();
-
-  function step(now) {
-    const t = Math.min((now - startTime) / duration, 1);
-    const ease = t < 0.5
-      ? 4 * t * t * t
-      : 1 - Math.pow(-2 * t + 2, 3) / 2; // cubic easeInOut
-    window.scrollTo(0, startY + distance * ease);
-    if (t < 1) requestAnimationFrame(step);
+    function step(now) {
+      const t = Math.min((now - startTime) / duration, 1);
+      const ease = t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+      window.scrollTo(0, startY + distance * ease);
+      if (t < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
   }
 
-  requestAnimationFrame(step);
-}
+  function lockToSection(index) {
+    if (
+      index < 0 ||
+      index >= sections.length ||
+      window.scrollY + window.innerHeight * 0.3 > scrollEnd
+    ) {
+      isSnapping = false;
+      cumulativeScroll = 0;
+      return;
+    }
 
-// ---------- Intent-based Snap-to-Center ----------
-let activeIndex = 0;
-let isSnapping = false;
-let scrollStartY = window.scrollY;
-let lastScrollTime = performance.now();
+    isSnapping = true;
+    activeIndex = index;
 
-const SNAP_THRESHOLD = window.innerHeight * 0.18; // how far user must scroll to trigger next
-const SNAP_TIMEOUT = 120; // ms of no wheel/touch scroll before we consider gesture done
+    const target = sections[index];
+    const rect = target.getBoundingClientRect();
+    const sectionPadding = parseFloat(getComputedStyle(target).paddingTop) || 0;
+    const visualCenterOffset = rect.height / 2 - sectionPadding * 0.5;
+    const offset = rect.top + visualCenterOffset - window.innerHeight / 2;
 
-function lockToSection(index) {
-  // --- stop snapping if we're outside the defined scroll container ---
-  if (
-    index < 0 ||
-    index >= snapSections.length ||
-    window.scrollY + window.innerHeight * 0.3 > scrollEnd
-  ) {
-    // allow normal scroll behavior beyond the last section
-    isSnapping = false;
-    cumulativeScroll = 0;
-    return;
+    const targetY = window.scrollY + offset;
+    smoothScrollTo(targetY, 850);
+
+    setTimeout(() => (isSnapping = false), 900);
   }
 
-  isSnapping = true;
-  activeIndex = index;
-
-  const target = snapSections[index];
-  const rect = target.getBoundingClientRect();
-  // Find "visual" center (account for extra top padding or floating elements)
-  const sectionPadding = parseFloat(getComputedStyle(target).paddingTop) || 0;
-  const visualCenterOffset = (rect.height / 2) - sectionPadding * 0.5;
-  const offset = rect.top + visualCenterOffset - window.innerHeight / 2;
-
-  const targetY = window.scrollY + offset;
-
-  smoothScrollTo(targetY, 850, 0);
-
-  setTimeout(() => {
-    isSnapping = false;
-    scrollStartY = window.scrollY;
-  }, 900);
-}
-
-if (!isMobile) {
-  // ---------- Gesture-based intent detection ----------
   let lastTouchY = null;
   let intentTimer = null;
-  let cumulativeScroll = 0;
+
+  function handleScrollIntent(deltaY) {
+    if (isSnapping) return;
+    clearTimeout(intentTimer);
+    intentTimer = setTimeout(() => evaluateIntent(), SNAP_TIMEOUT);
+    cumulativeScroll += deltaY;
+  }
+
+  function evaluateIntent() {
+    if (Math.abs(cumulativeScroll) > SNAP_THRESHOLD) {
+      const direction = cumulativeScroll > 0 ? 1 : -1;
+      lockToSection(activeIndex + direction);
+    } else {
+      lockToSection(activeIndex);
+    }
+    cumulativeScroll = 0;
+  }
 
   window.addEventListener("wheel", e => handleScrollIntent(e.deltaY));
   window.addEventListener("touchmove", e => {
@@ -223,32 +148,6 @@ if (!isMobile) {
     handleScrollIntent(dy);
   });
   window.addEventListener("touchend", () => (lastTouchY = null));
-
-  function handleScrollIntent(deltaY) {
-    if (isSnapping) return;
-
-    const now = performance.now();
-    const deltaT = now - lastScrollTime;
-    lastScrollTime = now;
-
-    // Reset the timeout each time user keeps scrolling
-    clearTimeout(intentTimer);
-    intentTimer = setTimeout(() => evaluateIntent(), SNAP_TIMEOUT);
-
-    // Track cumulative movement for this gesture
-    cumulativeScroll += deltaY;
-  }
-
-  function evaluateIntent() {
-    if (Math.abs(cumulativeScroll) > SNAP_THRESHOLD) {
-      const direction = cumulativeScroll > 0 ? 1 : -1;
-      lockToSection(activeIndex + direction);
-    } else {
-      // If small gesture, return to current section
-      lockToSection(activeIndex);
-    }
-    cumulativeScroll = 0;
-  }
 }
 
 
