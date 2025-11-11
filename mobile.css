@@ -494,3 +494,33 @@ body {
     display: none !important;
   }
 }
+
+
+@media (max-width: 768px) {
+  /* All content that normally animates in */
+  .scroll-title,
+  .scroll-subtitle,
+  .scroll-description,
+  .floating-card,
+  .journey-path,
+  .skills-grid,
+  .stats-display,
+  .innovation-image,
+  .portrait-card {          /* <—— ADD THIS LINE */
+    opacity: 1 !important;
+    transform: none !important;
+    visibility: visible !important;
+  }
+
+  /* Also ensure the overall section is visible */
+  .scroll-section {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* Restore normal scrolling for the container */
+  .scroll-container {
+    overflow: visible !important;
+    height: auto !important;
+  }
+}
