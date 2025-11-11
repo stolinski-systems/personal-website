@@ -14,11 +14,7 @@ if (hamburger && navMenu) {
   );
 }
 
-
-// Detect phones/tablets (global)
-const isMobile = window.matchMedia("(max-width: 768px)").matches || 'ontouchstart' in window;
-
-// Apple-style cross-fade
+// Apple-style cross-fade (fixed)
 const scrollContainer = document.querySelector('.scroll-container');
 const sections = scrollContainer
   ? Array.from(scrollContainer.querySelectorAll('.scroll-section'))
@@ -30,23 +26,41 @@ function updatePanels() {
   if (!sections.length) return;
   const vh = window.innerHeight;
   const scrollY = window.scrollY;
+  const docH = document.body.scrollHeight;
 
   sections.forEach((sec, i) => {
     const rect = sec.getBoundingClientRect();
     const center = rect.top + rect.height / 2;
     const dist = Math.abs(center - vh / 2);
-    let ratio = 1 - dist / (vh * 0.8);
+
+    // fade range: 0.6 * vh gives a smoother transition
+    let ratio = 1 - dist / (vh * 0.6);
     ratio = Math.max(0, Math.min(1, ratio));
 
-    if (i === 0 && scrollY < vh * 0.9) ratio = 1;
-    if (i === sections.length - 1 && scrollY + vh > document.body.scrollHeight - vh * 0.3) ratio = 1;
+    if (ratio > 0.65) {
+      sec.classList.add("animate"); // for section-wide fade if you want
+      sec.querySelectorAll(
+        ".scroll-title, .scroll-subtitle, .scroll-description, .floating-card, .journey-path, .skills-grid, .stats-display, .innovation-image, .portrait-card"
+      )
+        .forEach(el => el.classList.add("animate"));
+    } else if (ratio < 0.25) {
+      sec.querySelectorAll(
+        ".scroll-title, .scroll-subtitle, .scroll-description, .floating-card, .journey-path, .skills-grid, .stats-display, .innovation-image, .portrait-card"
+      )
+        .forEach(el => el.classList.remove("animate"));
+    }
 
-    const y = (1 - ratio) * 50;
+
+    // Force first & last to stay visible when near top/bottom
+    if (scrollY < vh * 0.3 && i === 0) ratio = 1;
+    if (scrollY + vh > docH - vh * 0.3 && i === sections.length - 1) ratio = 1;
+
+    const y = (1 - ratio) * 40;
     const s = 0.97 + ratio * 0.03;
 
     sec.style.opacity = ratio.toFixed(3);
     sec.style.transform = `translateY(${y}px) scale(${s})`;
-    sec.style.zIndex = String(100 + Math.round(ratio * 100) + i);
+    sec.style.zIndex = 100 + Math.round(ratio * 100);
   });
 }
 
@@ -58,17 +72,20 @@ function queueUpdate() {
   });
 }
 
-window.addEventListener('load', () => setTimeout(updatePanels, 200));
-window.addEventListener('resize', queueUpdate);
-window.addEventListener('scroll', queueUpdate);
+const isMobile = window.matchMedia("(max-width: 768px)").matches || 'ontouchstart' in window;
 
-// ✅ Stop snapping on mobile
 if (isMobile) {
   document.documentElement.style.scrollSnapType = "none";
   document.body.classList.add("mobile-mode");
   console.log("Mobile mode: fancy scroll disabled");
 } else {
-  // ---------- Smooth Magnetic Snap-to-Center Logic ----------
+  // Only attach Apple-like effects for desktop
+  window.addEventListener('scroll', queueUpdate);
+  window.addEventListener('resize', queueUpdate);
+  window.addEventListener('load', () => setTimeout(updatePanels, 200));
+
+  // ... keep your smooth-snap logic here too ..
+
   let activeIndex = 0;
   let isSnapping = false;
   let lastScrollTime = performance.now();
@@ -533,14 +550,6 @@ document.addEventListener('keydown', e => {
   }
 });
 
-window.addEventListener('DOMContentLoaded', () => {
-  if (sections[0]) {
-    sections[0].style.opacity = '1';
-    sections[0].style.transform = 'none';
-  }
-});
-
-
 document.querySelectorAll('.project-card').forEach(card => {
   card.addEventListener('click', e => {
     // If the click is on/inside an anchor or button (or anything marked data-nomodal), do nothing
@@ -557,4 +566,11 @@ document.querySelectorAll('.website-btn').forEach(btn => {
     e.stopPropagation();   // don't bubble to the card
     // IMPORTANT: do NOT call preventDefault here—let the link navigate
   });
+});
+
+window.addEventListener('DOMContentLoaded', () => {
+  if (sections[0]) {
+    sections[0].style.opacity = '1';
+    sections[0].style.transform = 'none';
+  }
 });

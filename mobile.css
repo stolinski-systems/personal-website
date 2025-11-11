@@ -87,14 +87,22 @@ body {
 ---------------------------------------------------------- */
 .scroll-container {
   scroll-snap-type: none;
-  overflow: visible;
+  overflow: hidden; /* was visible — must stay hidden for JS visuals */
 }
 .scroll-section {
   padding: 80px 0;
-  min-height: auto;
+  min-height: 100vh; /* was auto — must have full height */
   opacity: 1 !important;
   transform: none !important;
 }
+
+@media (max-width: 768px) {
+  .scroll-section {
+    min-height: 90vh;
+  }
+}
+
+
 .section-content {
   display: flex;
   flex-direction: column;
@@ -103,7 +111,6 @@ body {
   padding: 0 16px;
 }
 .scroll-visual {
-  order: -1; /* show images first */
   justify-content: center;
 }
 .portrait-card,
@@ -301,18 +308,189 @@ body {
   50% { transform: translateY(-6px); }
 }
 
-/* Default mobile layout: stack vertically */
-.section-content {
-  flex-direction: column;
+.scroll-section:first-child {
+  opacity: 1;
+  transform: none;
 }
 
-/* Keep Impact section in normal order (title above stats) */
-.stats-section .section-content {
-  flex-direction: column;
+
+/* ==========================================================
+   FIX 2: Force all timeline cards center-aligned on mobile
+   ========================================================== */
+@media (max-width: 768px) {
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 600px;
+    margin: 3rem auto;
+    padding: 0 1rem;
+  }
+
+  /* Catch all timeline items, even the alternating ones */
+  .timeline-item,
+  .timeline-item:nth-child(even),
+  .timeline-item:nth-child(odd),
+  .luxury-brand.timeline-item,
+  .milestone.timeline-item {
+    position: relative !important;
+    width: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
+    transform: none !important;
+    margin: 0 auto 2rem auto !important;
+    text-align: center !important;
+    float: none !important;
+    clear: both !important;
+  }
+
+  /* explicitly kill any inherited nth-child translate rules */
+  .timeline-item:nth-child(even),
+  .timeline-item:nth-child(odd) {
+    transform: none !important;
+    left: 0 !important;
+    right: 0 !important;
+  }
+
+  /* Reset any parent wrapper transforms (sometimes used for right column) */
+  .timeline > * {
+    transform: none !important;
+  }
+
+  /* Center and clean card visuals */
+  .timeline-content {
+    margin: 0 auto !important;
+    text-align: center !important;
+    border-left: none !important;
+    border-top: 4px solid var(--blue);
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    padding: 1.5rem;
+    max-width: 480px;
+  }
+
+  .timeline-content h3,
+  .timeline-content h4,
+  .timeline-content p,
+  .timeline-date {
+    text-align: center !important;
+  }
+
+  .timeline-image,
+  .brand-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 1rem auto;
+  }
+
+  .timeline-image img {
+    max-width: 90%;
+    height: auto;
+    border-radius: 10px;
+  }
+
+  .brand-tags,
+  .brand-learn-more {
+    justify-content: center;
+  }
+
+  /* Hide any desktop pseudo-line that may offset alignment */
+  .timeline::before {
+    display: none !important;
+  }
 }
 
-/* Optional: add spacing so title isn’t too tight */
-.stats-section .scroll-text {
-  margin-bottom: 16px;
-  text-align: center;
+
+
+/* ==========================================================
+   FIX: Always show section contents on mobile
+   ========================================================== */
+
+@media (max-width: 768px) {
+  /* All content that normally animates in */
+  .scroll-title,
+  .scroll-subtitle,
+  .scroll-description,
+  .floating-card,
+  .journey-path,
+  .skills-grid,
+  .stats-display,
+  .innovation-image {
+    opacity: 1 !important;
+    transform: none !important;
+    visibility: visible !important;
+  }
+
+  /* Also ensure the overall section is visible */
+  .scroll-section {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* Restore normal scrolling for the container */
+  .scroll-container {
+    overflow: visible !important;
+    height: auto !important;
+  }
+}
+
+/* ==========================================================
+   FINAL FIX: Neutralize desktop timeline offsets on mobile
+   ========================================================== */
+@media (max-width: 768px) {
+
+  /* Kill the desktop left/right offsets completely */
+  .timeline-item:nth-child(odd),
+  .timeline-item:nth-child(even) {
+    left: 0 !important;
+    right: 0 !important;
+    transform: none !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    text-align: center !important;
+    width: 100% !important;
+    float: none !important;
+    margin: 0 auto 2rem auto !important;
+  }
+
+  /* Make sure the timeline itself isn’t offset */
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 600px;
+    margin: 3rem auto;
+    padding: 0 1rem;
+  }
+
+  /* Center each content card */
+  .timeline-content {
+    margin: 0 auto;
+    text-align: center;
+    border-left: none;
+    border-top: 4px solid var(--blue);
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    padding: 1.5rem;
+    max-width: 480px;
+  }
+
+  .timeline-content h3,
+  .timeline-content h4,
+  .timeline-content p,
+  .timeline-date {
+    text-align: center;
+  }
+
+  .timeline-marker {
+    display: none !important;
+  }
+
+  .timeline::before {
+    display: none !important;
+  }
 }
