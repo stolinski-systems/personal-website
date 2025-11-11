@@ -29,6 +29,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Patrick Stolinski</title>
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="mobile.css" media="(max-width: 768px)" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
@@ -38,7 +39,7 @@
   <nav class="navbar">
     <div class="nav-container">
       <div class="nav-logo">
-        <h2><i class="fas fa-robot"></i> Patrick Stolinski</h2>
+        <h2>Patrick Stolinski</h2>
       </div>
       <ul class="nav-menu">
         <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
@@ -68,7 +69,7 @@
           <span class="highlight">Engineering systems and teams that fly.</span>
         </h1>
         <p class="hero-subtitle">
-          Flight Instructor. Founder. Engineer. I build products that turn complexity into clarity and teams into
+          I build products that turn complexity into clarity and teams into
           engines of innovation.
         </p>
         <div class="hero-buttons">
@@ -209,7 +210,7 @@
             <p>Role-based operations suite for PROTO Robotics. Designed for scale with SSO, queue logic, and a full
               email automation center—built in Flask with a refined, responsive UI.</p>
             <div class="project-tags"><span class="tag">Flask</span><span class="tag">SQLite</span><span
-                class="tag">SSO</span></div>
+                class="tag">Server</span></div>
             <a href="#" class="project-link">Learn More <i class="fas fa-arrow-right"></i></a>
           </div>
         </article>
@@ -225,15 +226,21 @@
             <h3>Aircraft Sales Website</h3>
             <p>Digital platform for business jet brokerage. Custom WordPress system with dynamic filters, ACF-driven
               listings, and real-time aircraft comparison tools.</p>
-            <div class="project-tags"><span class="tag">WordPress</span><span class="tag">Divi</span><span
-                class="tag">ACF</span></div>
-            <a href="#" class="project-link">Learn More <i class="fas fa-arrow-right"></i></a>
-            <a href="https://tangomike.aero" target="_blank" rel="noopener noreferrer"
-                class="btn small website-btn" data-nomodal>
+            <div class="project-tags">
+              <span class="tag">WordPress</span>
+              <span class="tag">Divi</span>
+              <span class="tag">UX</span>
+            </div>
+            <div class="project-buttons">
+              <a href="#" class="project-link">Learn More <i class="fas fa-arrow-right"></i></a>
+              <a href="https://tangomike.aero" target="_blank" rel="noopener noreferrer" class="btn small website-btn"
+                data-nomodal>
                 Visit Website
               </a>
+            </div>
           </div>
         </article>
+
 
         <!-- FlightFitters -->
         <article class="project-card" data-project="flightfitters">
@@ -264,7 +271,7 @@
 
         <!-- RFID Lock -->
         <article class="project-card" data-project="rfidaccess">
-          <div class="project-image" style="--img:url('img/prototeam.JPEG')">
+          <div class="project-image" style="--img:url('img/prototeam.jpeg')">
             <div class="project-placeholder"><i class="fas fa-lock"></i>
               <p>RFID Access</p>
             </div>

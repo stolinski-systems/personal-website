@@ -14,6 +14,16 @@ if (hamburger && navMenu) {
   );
 }
 
+// Disable snap behavior on small screens (mobile/touch devices)
+const isMobile = window.matchMedia("(max-width: 768px)").matches ||
+  'ontouchstart' in window;
+
+if (isMobile) {
+  document.documentElement.style.scrollSnapType = "none"; // disable snapping
+  document.body.classList.add("mobile-mode");
+}
+
+
 // Smooth anchor scroll
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
@@ -227,17 +237,21 @@ function handleScrollIntent(deltaY) {
 }
 let cumulativeScroll = 0;
 
-function evaluateIntent() {
-  if (Math.abs(cumulativeScroll) > SNAP_THRESHOLD) {
-    const direction = cumulativeScroll > 0 ? 1 : -1;
-    lockToSection(activeIndex + direction);
-  } else {
-    // If small gesture, return to current section
-    lockToSection(activeIndex);
-  }
-  cumulativeScroll = 0;
-}
+if (!isMobile) {
+  // ---- all your snapping + wheel/touch intent code here ----
 
+
+  function evaluateIntent() {
+    if (Math.abs(cumulativeScroll) > SNAP_THRESHOLD) {
+      const direction = cumulativeScroll > 0 ? 1 : -1;
+      lockToSection(activeIndex + direction);
+    } else {
+      // If small gesture, return to current section
+      lockToSection(activeIndex);
+    }
+    cumulativeScroll = 0;
+  }
+}
 
 // Parallax + scroll indicator fade
 let ticking = false;
@@ -447,7 +461,7 @@ const projectData = {
     title: 'FlightFitters (Part 107)',
     subtitle: 'Aerial Operations & Media',
     icon: 'fas fa-camera',
-    image: 'img/flightfitters.jpg',
+    image: 'img/atlanta.jpg',
     description:
       'Aerial media and inspection company providing Part 107-certified drone operations, 3D modeling, and industrial photogrammetry.',
     features: [

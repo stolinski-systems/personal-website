@@ -991,6 +991,8 @@ Statistics
   }
 }
 
+
+
 .brands {
   background: #f8f9fa;
   padding: 60px 0;
@@ -2036,3 +2038,20 @@ html, body {
 
 .project-buttons { position: relative; z-index: 5; }
 .website-btn { position: relative; z-index: 10; }
+
+.project-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px; /* spacing above buttons */
+}
+
+.project-link {
+  flex: 1;
+  text-align: left;
+}
+
+.website-btn {
+  flex-shrink: 0;
+  margin-left: 16px;
+}
