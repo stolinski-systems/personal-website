@@ -209,37 +209,35 @@ function lockToSection(index) {
   }, 900);
 }
 
-// Gesture-based intent detection
-window.addEventListener("wheel", e => handleScrollIntent(e.deltaY));
-window.addEventListener("touchmove", e => {
-  const touchY = e.touches[0].clientY;
-  const dy = lastTouchY !== null ? lastTouchY - touchY : 0;
-  lastTouchY = touchY;
-  handleScrollIntent(dy);
-});
-window.addEventListener("touchend", () => (lastTouchY = null));
-let lastTouchY = null;
-
-let intentTimer = null;
-function handleScrollIntent(deltaY) {
-  if (isSnapping) return;
-
-  const now = performance.now();
-  const deltaT = now - lastScrollTime;
-  lastScrollTime = now;
-
-  // Reset the timeout each time user keeps scrolling
-  clearTimeout(intentTimer);
-  intentTimer = setTimeout(() => evaluateIntent(), SNAP_TIMEOUT);
-
-  // Track cumulative movement for this gesture
-  cumulativeScroll += deltaY;
-}
-let cumulativeScroll = 0;
-
 if (!isMobile) {
-  // ---- all your snapping + wheel/touch intent code here ----
+  // ---------- Gesture-based intent detection ----------
+  let lastTouchY = null;
+  let intentTimer = null;
+  let cumulativeScroll = 0;
 
+  window.addEventListener("wheel", e => handleScrollIntent(e.deltaY));
+  window.addEventListener("touchmove", e => {
+    const touchY = e.touches[0].clientY;
+    const dy = lastTouchY !== null ? lastTouchY - touchY : 0;
+    lastTouchY = touchY;
+    handleScrollIntent(dy);
+  });
+  window.addEventListener("touchend", () => (lastTouchY = null));
+
+  function handleScrollIntent(deltaY) {
+    if (isSnapping) return;
+
+    const now = performance.now();
+    const deltaT = now - lastScrollTime;
+    lastScrollTime = now;
+
+    // Reset the timeout each time user keeps scrolling
+    clearTimeout(intentTimer);
+    intentTimer = setTimeout(() => evaluateIntent(), SNAP_TIMEOUT);
+
+    // Track cumulative movement for this gesture
+    cumulativeScroll += deltaY;
+  }
 
   function evaluateIntent() {
     if (Math.abs(cumulativeScroll) > SNAP_THRESHOLD) {
@@ -252,6 +250,7 @@ if (!isMobile) {
     cumulativeScroll = 0;
   }
 }
+
 
 // Parallax + scroll indicator fade
 let ticking = false;
@@ -320,7 +319,7 @@ const brandData = {
     company: 'NetJets Aviation, Inc.',
     location: 'Columbus, Ohio',
     icon: 'fas fa-plane-departure',
-    image: 'img/netjets_exp.jpeg',
+    image: 'img/netjets_exp.JPEG',
     achievements: [
       'Validated instrument procedures in business jet simulators',
       'Developed digital ops tooling for flight technical teams',
@@ -333,7 +332,7 @@ const brandData = {
     company: 'HDR Engineering, Inc.',
     location: 'Omaha, Nebraska',
     icon: 'fas fa-industry',
-    image: 'img/hdr_exp.jpeg',
+    image: 'img/hdr_exp.JPEG',
     achievements: [
       'Supported FAA/DOD airfield projects with CAD standards',
       'Coordinated across multi-disciplinary teams',
