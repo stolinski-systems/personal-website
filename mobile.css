@@ -300,3 +300,19 @@ body {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-6px); }
 }
+
+/* Default mobile layout: stack vertically */
+.section-content {
+  flex-direction: column;
+}
+
+/* Keep Impact section in normal order (title above stats) */
+.stats-section .section-content {
+  flex-direction: column;
+}
+
+/* Optional: add spacing so title isn’t too tight */
+.stats-section .scroll-text {
+  margin-bottom: 16px;
+  text-align: center;
+}
