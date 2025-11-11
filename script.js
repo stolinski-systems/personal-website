@@ -97,17 +97,29 @@ if (isMobile) {
     ? scrollContainer.offsetTop + scrollContainer.offsetHeight
     : Infinity;
 
-  function smoothScrollTo(targetY, duration = 1000) {
+  function smoothScrollTo(targetY, duration = 1000, easing = "cubic") {
     const startY = window.scrollY;
     const distance = targetY - startY;
     const startTime = performance.now();
 
+    function ease(t) {
+      switch (easing) {
+        case "sin":
+          // smoother sinusoidal ease-in-out
+          return 0.5 - 0.5 * Math.cos(Math.PI * t);
+        default:
+          // existing cubic
+          return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+      }
+    }
+
     function step(now) {
       const t = Math.min((now - startTime) / duration, 1);
-      const ease = t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-      window.scrollTo(0, startY + distance * ease);
+      const eased = ease(t);
+      window.scrollTo(0, startY + distance * eased);
       if (t < 1) requestAnimationFrame(step);
     }
+
     requestAnimationFrame(step);
   }
 
@@ -135,10 +147,20 @@ if (isMobile) {
     smoothScrollTo(targetY, 850);
 
     setTimeout(() => (isSnapping = false), 900);
+    if (index === 0 && window.scrollY < window.innerHeight * 0.3) {
+      firstSnapDone = false;
+    }
+
   }
 
   let lastTouchY = null;
   let intentTimer = null;
+
+  let firstSnapDone = false; // Track whether we've completed the first snap
+  let heroReady = false;
+  let heroTimer = null;
+  
+
 
   function handleScrollIntent(deltaY) {
     if (isSnapping) return;
@@ -147,15 +169,110 @@ if (isMobile) {
     cumulativeScroll += deltaY;
   }
 
+
+
   function evaluateIntent() {
-    if (Math.abs(cumulativeScroll) > SNAP_THRESHOLD) {
+    const vh = window.innerHeight;
+    const scrollY = window.scrollY;
+    const containerTop = scrollContainer.offsetTop;
+    const containerBottom = scrollContainer.offsetTop + scrollContainer.offsetHeight;
+    const inScrollZone =
+      scrollY + vh * 0.3 >= containerTop && scrollY <= containerBottom - vh * 0.3;
+
+    // --- Dynamic thresholds ---
+    let threshold = SNAP_THRESHOLD;
+    if (!firstSnapDone) threshold *= 0.6; // first entry from hero
+    if (scrollY < containerTop + vh * 0.3 || scrollY + vh > containerBottom - vh * 0.3)
+      threshold *= 1.4;
+
+    // --- Bail out if outside Apple zone ---
+    if (!inScrollZone) {
+      isSnapping = false;
+      cumulativeScroll = 0;
+      firstSnapDone = scrollY > containerTop - vh * 0.2;
+      return;
+    }
+
+    if (Math.abs(cumulativeScroll) > threshold) {
       const direction = cumulativeScroll > 0 ? 1 : -1;
-      lockToSection(activeIndex + direction);
+
+      // clamp hop
+      let nextIndex = Math.max(
+        0,
+        Math.min(sections.length - 1, activeIndex + direction)
+      );
+
+      // --- Upward protection: prevent jump past first Apple section ---
+      if (direction < 0 && activeIndex <= 1) {
+        // if we were at 1 or 0, lock to 0 and stop hero handoff
+        lockToSection(0);
+        firstSnapDone = true;
+        cumulativeScroll = 0;
+        isSnapping = false;
+        return;
+      }
+
+      // --- Entering from hero ---
+      if (direction > 0 && scrollY < containerTop + vh * 0.4) {
+        lockToSection(0);
+        firstSnapDone = true;
+      }
+
+      // --- Leaving to "My Work" ---
+      else if (direction > 0 && activeIndex === sections.length - 1 && scrollY + vh * 0.6 > containerBottom) {
+        // Use longer duration + sinusoidal easing for graceful exit
+        smoothScrollTo(containerBottom + vh * 0.05, 1300, "sin");
+        isSnapping = false;
+        firstSnapDone = false;
+      }
+
+
+
+      // --- Returning upward from bottom edge ---
+      else if (direction < 0 && scrollY + vh > containerBottom - vh * 0.4) {
+        lockToSection(sections.length - 1);
+        firstSnapDone = true;
+      }
+
+      // --- Top handoff (to hero) ---
+      else if (
+        direction < 0 &&
+        activeIndex === 0 &&
+        scrollY < containerTop + vh * 0.25 &&
+        heroReady === true // only if we've lingered at 0 long enough
+      ) {
+        smoothScrollTo(Math.max(containerTop - vh * 0.95, 0), 1100);
+        firstSnapDone = false;
+        isSnapping = false;
+        heroReady = false;
+      }
+
+      // --- Normal mid-zone movement ---
+      else {
+        lockToSection(nextIndex);
+        firstSnapDone = true;
+        heroReady = nextIndex === 0 ? false : heroReady;
+      }
+
+      // small buffer to clear momentum
+      cumulativeScroll = 0;
+      setTimeout(() => (cumulativeScroll = 0), 80);
+
+      // if we’ve just arrived at section 0, start hero-handoff timer
+      if (activeIndex === 0 && direction < 0) {
+        heroReady = false;
+        clearTimeout(heroTimer);
+        heroTimer = setTimeout(() => (heroReady = true), 500);
+      }
     } else {
       lockToSection(activeIndex);
+      cumulativeScroll = 0;
     }
-    cumulativeScroll = 0;
   }
+
+
+
+
 
   window.addEventListener("wheel", e => handleScrollIntent(e.deltaY));
   window.addEventListener("touchmove", e => {
