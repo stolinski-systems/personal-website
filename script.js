@@ -362,7 +362,7 @@ const brandData = {
   },
   brand2: {
     title: 'Airfield Design Intern',
-    company: 'HDR Engineering, Inc.',
+    company: 'HDR, Inc.',
     location: 'Omaha, Nebraska',
     icon: 'fas fa-industry',
     image: 'img/hdr_exp.JPEG',
