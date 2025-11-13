@@ -2081,3 +2081,57 @@ html, body {
   opacity: 1;
   transform: none;
 }
+
+/* =========================================================
+   iPad / Tablet Fix (768px – 1200px)
+   ========================================================= */
+@media (min-width: 768px) and (max-width: 1200px) {
+
+  /* Fix disappearing Apple-scroll content */
+  .scroll-section {
+    min-height: 110vh; /* avoids mid-scroll cutoff */
+    scroll-snap-align: start; /* smoother for iPad */
+    scroll-snap-stop: normal;
+  }
+
+  /* Stack content like mobile */
+  .section-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 3rem;
+  }
+
+  /* Ensure images don’t vanish */
+  .scroll-visual {
+    justify-content: center;
+  }
+
+  .portrait-card,
+  .innovation-image {
+    margin: 0 auto;
+    transform: translateY(0) !important;
+    opacity: 1 !important;
+  }
+
+  /* Fix skills + stats grids for tablet */
+  .skills-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .stats-section .section-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  /* Slightly larger padding to avoid nav overlap */
+  .skills-section,
+  .stats-section {
+    padding-top: 120px;
+  }
+
+  /* Optional: disable scroll-snap entirely for iPad
+     (iPad Safari + transforms = common bug) */
+  html, body {
+    scroll-snap-type: none;
+  }
+}

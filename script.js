@@ -72,7 +72,10 @@ function queueUpdate() {
   });
 }
 
-const isMobile = window.matchMedia("(max-width: 768px)").matches || 'ontouchstart' in window;
+// iPad has width ≥ 768px, so treat it like desktop
+const isMobile = window.matchMedia("(max-width: 600px)").matches;
+
+
 
 if (isMobile) {
   document.documentElement.style.scrollSnapType = "none";
