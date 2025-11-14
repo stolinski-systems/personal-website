@@ -73,15 +73,40 @@ function queueUpdate() {
 }
 
 // iPad has width ≥ 768px, so treat it like desktop
-const isMobile = window.matchMedia("(max-width: 600px)").matches;
+// Device categories
+const width = window.innerWidth;
+const isPhone = width <= 600;              // iPhones + small Android
+const isTablet = width > 600 && width <= 1024;  // iPad & mid-size tablets
+const isDesktop = width > 1024;
 
 
 
-if (isMobile) {
+
+if (isPhone) {
+  // PHONES → Mobile mode (no Apple scroll)
   document.documentElement.style.scrollSnapType = "none";
   document.body.classList.add("mobile-mode");
-  console.log("Mobile mode: fancy scroll disabled");
-} else {
+  console.log("Phone mode: fancy scroll disabled");
+}
+
+else if (isTablet) {
+  // TABLETS → Regular scrolling, NO Apple scroll at all
+  document.documentElement.style.scrollSnapType = "none";
+  document.body.classList.add("tablet-mode");
+  console.log("Tablet mode: fancy scroll disabled");
+
+  // Make sure all scroll-sections appear normally
+  sections.forEach(sec => {
+    sec.style.opacity = "1";
+    sec.style.transform = "none";
+    sec.classList.add("animate");
+    sec.querySelectorAll(
+      ".scroll-title, .scroll-subtitle, .scroll-description, .skills-grid, .stats-display, .innovation-image, .portrait-card"
+    ).forEach(el => el.classList.add("animate"));
+  });
+}
+
+else {
   // Only attach Apple-like effects for desktop
   window.addEventListener('scroll', queueUpdate);
   window.addEventListener('resize', queueUpdate);
@@ -162,7 +187,7 @@ if (isMobile) {
   let firstSnapDone = false; // Track whether we've completed the first snap
   let heroReady = false;
   let heroTimer = null;
-  
+
 
 
   function handleScrollIntent(deltaY) {
