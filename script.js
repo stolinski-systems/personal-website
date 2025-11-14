@@ -74,13 +74,21 @@ function queueUpdate() {
 
 
 
+// Robust touch detection (catches iPad in all orientations)
+const hasTouch = (
+  "ontouchstart" in window ||
+  navigator.maxTouchPoints > 0 ||
+  navigator.msMaxTouchPoints > 0
+);
 
-const isTouch = window.matchMedia("(pointer: coarse)").matches;
-const isDesktop = !isTouch;
-
-if (isTouch) {
+if (hasTouch) {
   document.documentElement.style.scrollSnapType = "none";
   document.body.classList.add("no-apple-scroll");
+
+  // Kill Apple-style transforms completely
+  updatePanels = function () { };
+  window.removeEventListener("scroll", queueUpdate);
+  window.removeEventListener("resize", queueUpdate);
 
   sections.forEach(sec => {
     sec.style.opacity = "1";
@@ -94,19 +102,15 @@ if (isTouch) {
     });
   });
 
-  console.log("TOUCH DEVICE → Apple scroll disabled");
+  console.log("TOUCH DEVICE → scroll fully disabled");
 }
 else {
   // DESKTOP ONLY – Apple scroll system
-  window.addEventListener('scroll', queueUpdate);
-  window.addEventListener('resize', queueUpdate);
-  window.addEventListener('load', () => setTimeout(updatePanels, 200));
+  window.addEventListener("scroll", queueUpdate);
+  window.addEventListener("resize", queueUpdate);
+  window.addEventListener("load", () => setTimeout(updatePanels, 200));
 
-  console.log("DESKTOP → Apple scroll enabled");
-
-  // The ENTIRE crossfade/lock/smoothScroll/etc logic stays here
-
-  // ... keep your smooth-snap logic here too ..
+  console.log("DESKTOP (hasTouch=false) → scroll enabled");
 
   let activeIndex = 0;
   let isSnapping = false;
