@@ -72,12 +72,25 @@ function queueUpdate() {
   });
 }
 
-// iPad has width ≥ 768px, so treat it like desktop
-// Device categories
+const ua = navigator.userAgent || navigator.vendor || window.opera;
+
+// Detect real iPads (including iPadOS 13+ where UA says Macintosh)
+const isRealIpad =
+  /iPad/.test(ua) ||
+  (navigator.maxTouchPoints > 1 && /Macintosh/.test(ua));
+
 const width = window.innerWidth;
-const isPhone = width <= 600;              // iPhones + small Android
-const isTablet = width > 600 && width <= 1024;  // iPad & mid-size tablets
-const isDesktop = width > 1024;
+const height = window.innerHeight;
+
+// Generic tablet size rules for landscape tablets
+const isSizeTablet =
+  (width > 600 && width <= 1366) ||
+  (height > 600 && height <= 1366);
+
+const isPhone = width <= 600;
+const isTablet = isRealIpad || (isSizeTablet && !isPhone);
+const isDesktop = !isPhone && !isTablet;
+
 
 
 
