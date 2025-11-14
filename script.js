@@ -72,58 +72,39 @@ function queueUpdate() {
   });
 }
 
-const ua = navigator.userAgent || navigator.vendor || window.opera;
-
-// Detect real iPads (including iPadOS 13+ where UA says Macintosh)
-const isRealIpad =
-  /iPad/.test(ua) ||
-  (navigator.maxTouchPoints > 1 && /Macintosh/.test(ua));
-
-const width = window.innerWidth;
-const height = window.innerHeight;
-
-// Generic tablet size rules for landscape tablets
-const isSizeTablet =
-  (width > 600 && width <= 1366) ||
-  (height > 600 && height <= 1366);
-
-const isPhone = width <= 600;
-const isTablet = isRealIpad || (isSizeTablet && !isPhone);
-const isDesktop = !isPhone && !isTablet;
 
 
 
+const isTouch = window.matchMedia("(pointer: coarse)").matches;
+const isDesktop = !isTouch;
 
-
-if (isPhone) {
-  // PHONES → Mobile mode (no Apple scroll)
+if (isTouch) {
   document.documentElement.style.scrollSnapType = "none";
-  document.body.classList.add("mobile-mode");
-  console.log("Phone mode: fancy scroll disabled");
-}
+  document.body.classList.add("no-apple-scroll");
 
-else if (isTablet) {
-  // TABLETS → Regular scrolling, NO Apple scroll at all
-  document.documentElement.style.scrollSnapType = "none";
-  document.body.classList.add("tablet-mode");
-  console.log("Tablet mode: fancy scroll disabled");
-
-  // Make sure all scroll-sections appear normally
   sections.forEach(sec => {
     sec.style.opacity = "1";
     sec.style.transform = "none";
-    sec.classList.add("animate");
     sec.querySelectorAll(
-      ".scroll-title, .scroll-subtitle, .scroll-description, .skills-grid, .stats-display, .innovation-image, .portrait-card"
-    ).forEach(el => el.classList.add("animate"));
+      ".scroll-title, .scroll-subtitle, .scroll-description, " +
+      ".skills-grid, .stats-display, .portrait-card, .innovation-image"
+    ).forEach(el => {
+      el.style.opacity = "1";
+      el.style.transform = "none";
+    });
   });
-}
 
+  console.log("TOUCH DEVICE → Apple scroll disabled");
+}
 else {
-  // Only attach Apple-like effects for desktop
+  // DESKTOP ONLY – Apple scroll system
   window.addEventListener('scroll', queueUpdate);
   window.addEventListener('resize', queueUpdate);
   window.addEventListener('load', () => setTimeout(updatePanels, 200));
+
+  console.log("DESKTOP → Apple scroll enabled");
+
+  // The ENTIRE crossfade/lock/smoothScroll/etc logic stays here
 
   // ... keep your smooth-snap logic here too ..
 
