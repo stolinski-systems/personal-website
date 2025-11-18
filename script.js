@@ -391,7 +391,7 @@ const brandData = {
     company: 'HDR, Inc.',
     location: 'Omaha, Nebraska',
     icon: 'fas fa-industry',
-    image: 'img/hdr_exp.JPEG',
+    image: 'img/hdr_exp1.jpeg',
     achievements: [
       'Supported FAA/DOD airfield projects with CAD standards',
       'Coordinated across multi-disciplinary teams',
@@ -404,7 +404,7 @@ const brandData = {
     company: 'Thompson, Dreessen & Dorner, Inc.',
     location: 'Omaha, Nebraska',
     icon: 'fas fa-up-right-and-down-left-from-center',
-    image: 'img/td2_exp.jpg',
+    image: 'img/td2_exp1.jpg',
     achievements: [
       'Executed LiDAR & photogrammetry missions',
       'Produced survey-grade point clouds and orthos',
