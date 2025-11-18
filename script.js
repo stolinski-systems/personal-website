@@ -536,13 +536,11 @@ const projectData = {
     icon: 'fas fa-lock',
     image: 'img/prototeam.jpeg',
     description:
-      'A Raspberry Pi–based smart lock system integrating RFID authentication and servo-driven mechanical locking. Designed for PROTO Robotics Lab access control.',
+      'A Raspberry Pi–based smart lock system integrating RFID authentication and servo-driven mechanical locking.',
     features: [
       'RFID tag identification',
       'Python backend with GPIO control and servo actuation',
-      'Encrypted user validation and access logging',
-      'Modular hardware for multi-door scalability',
-      'Future expansion for biometric and NFC authentication'
+      'Encrypted user validation and access logging'
     ],
     skills: ['Python', 'Raspberry Pi', 'Hardware', 'Security', 'GPIO']
   },
@@ -552,10 +550,9 @@ const projectData = {
     icon: 'fas fa-cubes',
     image: 'img/drone_data.png',
     description:
-      'Drone-based high-resolution mapping for survey-grade modeling using advanced photogrammetry and LiDAR workflows.',
+      'Drone-based high-resolution mapping for survey-grade modeling using advanced photogrammetry workflows.',
     features: [
-      'Generated accurate 3D point clouds and terrain meshes',
-      'Survey-grade accuracy within sub-inch precision',
+      'Generated 3D point clouds and terrain meshes',
       'GIS-compatible georeferencing outputs (GeoTIFF, LAS)',
       'Automated post-processing pipeline for modeling'
     ],
