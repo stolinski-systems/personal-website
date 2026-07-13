@@ -1,3 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <text y=".9em" font-size="90">✈️</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="14" fill="#0d1c36"></rect>
+  <text x="30" y="44" text-anchor="middle" font-family="Archivo, Futura, &#39;Trebuchet MS&#39;, sans-serif" font-weight="800" font-size="32" letter-spacing="-1" fill="#ffffff">PS</text>
+  <circle cx="51" cy="41" r="4.5" fill="#87ceeb"></circle>
 </svg>
