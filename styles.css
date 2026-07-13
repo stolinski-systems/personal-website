@@ -188,7 +188,8 @@ section[id], div[id] { scroll-margin-top: 70px; }
   background: var(--navy-ink);
   padding: 96px var(--pad-x);
   display: grid;
-  grid-template-columns: 320px 1fr;
+  grid-template-columns: 320px minmax(0, 680px);
+  justify-content: center;
   gap: 64px;
   align-items: center;
 }
@@ -493,7 +494,11 @@ section[id], div[id] { scroll-margin-top: 70px; }
 
 /* ============================== FLIGHT LOG ============================== */
 
-.log { position: relative; max-width: 1080px; }
+.log {
+  position: relative;
+  max-width: 1080px;
+  margin: 0 auto;
+}
 
 .log::before {
   content: '';
