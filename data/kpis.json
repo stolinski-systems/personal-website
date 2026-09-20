@@ -1,8 +1,8 @@
 {
   "kpis": [
-    { "id": "flight-hours", "value": "500", "suffix": "+", "label": "Flight hours logged" },
-    { "id": "faa-certificates", "value": "8", "label": "FAA certificates & ratings" },
-    { "id": "students-reached", "value": "250", "suffix": "+", "label": "Students reached through PROTO" },
+    { "id": "flight-hours-logged", "value": "500", "suffix": "+", "label": "Flight hours logged" },
+    { "id": "faa-certificates-ratings", "value": "10", "label": "FAA certificates & ratings" },
+    { "id": "students-reached-through-proto", "value": "250", "suffix": "+", "label": "Students reached through PROTO" },
     { "id": "university-gpa", "value": "3.92", "label": "University GPA" },
     { "id": "years-on-earth", "value": "21", "label": "Years on Earth" }
   ]
