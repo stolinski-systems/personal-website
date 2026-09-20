@@ -1,0 +1,19 @@
+{
+  "title": "FROM THE FIELD",
+  "items": [
+    { "image": "img/DJI_0021-HDR.jpg", "alt": "Aerial stadium at sunset", "wide": true },
+    { "image": "img/solo.JPEG", "alt": "First solo" },
+    { "image": "img/sfo-golden-gate.jpg", "alt": "Golden Gate Bridge, San Francisco" },
+    { "image": "img/tucson-team.jpg", "alt": "PROTO team at sunset in the Tucson mountains" },
+    { "image": "img/aerial-atlanta.jpg", "alt": "Atlanta skyline from above", "wide": true },
+    { "image": "img/tucson-saguaro.jpg", "alt": "Saguaro National Park, Tucson" },
+    { "image": "img/aerial-ofd.jpg", "alt": "Omaha Fire Department response from above", "wide": true },
+    { "image": "img/proto-pcb.jpg", "alt": "The PROTO controller board" },
+    { "image": "img/photogrammetry.jpg", "alt": "Photogrammetry" },
+    { "image": "img/cfi.JPEG", "alt": "CFI checkride" },
+    { "image": "img/aerial-cranes.jpg", "alt": "Tower cranes at sunset" },
+    { "image": "img/aerial-omaha.jpg", "alt": "Downtown Omaha", "wide": true },
+    { "image": "img/final-approach.jpg", "alt": "On final approach from the cockpit", "wide": true },
+    { "image": "img/aerial-church.jpg", "alt": "Aerial church at golden hour", "wide": true }
+  ]
+}

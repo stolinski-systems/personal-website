@@ -12,19 +12,42 @@ within a couple of minutes. There is no production host pulling a branch and
 no revert timer beyond git itself — keep one commit per mission so the
 Office's one-tap revert means something.
 
-## The KPI pipeline — the one rule specific to this repo
+## The content pipeline — the one rule specific to this repo
 
-`data/kpis.json` is the canonical data for the stats section ("Flight hours
-logged", "University GPA", …). The block in `index.html` between
-`<!-- kpis:begin … -->` and `<!-- kpis:end -->` is **generated** from it by
-`node tools/apply-kpis.js`.
+`data/` is the canonical content for every generated surface (the site's
+mini-CMS, edited from the Secretary General's Office):
 
-- To change a KPI: edit `data/kpis.json`, run `node tools/apply-kpis.js`,
-  commit both files together.
-- Never hand-edit the generated block. The gate compares it byte-for-byte
-  against what the renderer would produce and goes red on a mismatch.
-- The Office's KPI desk dispatches missions that do exactly this; those
-  missions must change nothing else in the repo.
+- `data/kpis.json` → the stats strip (marked block in `index.html`)
+- `data/work.json` → the "BY DESIGN: THE WORK" tiles (marked block)
+- `data/highlights.json` → the "RECENT HIGHLIGHTS" cards (marked block)
+- `data/flight-log.json` → the flight-log timeline (marked block)
+- `data/gallery.json` → the "FROM THE FIELD" grid (marked block)
+- `data/posts.json` → **all of `journal.html`** plus `feed.xml`
+- `data/media.json` → GENERATED manifest of `img/` (never hand-edited)
+
+To change content: edit the data file, run `node tools/apply-content.js`
+(regenerates everything that follows from data — `tools/apply-kpis.js`
+remains the KPI-only subset), and commit the data with the regenerated
+files together.
+
+- Never hand-edit a generated block, `journal.html`, `feed.xml`, or
+  `data/media.json`. The gate re-derives all of them and compares
+  byte-for-byte; a mismatch is red.
+- Validation is part of the pipeline: every image reference must exist in
+  `img/`, every internal link must point at a real journal post id, and a
+  save that breaks either goes red instead of live.
+- A journal post body is the small markdown dialect documented at the top
+  of `tools/render.js` (paragraphs, `### headings`, `**bold**`,
+  `[text](https://…)` links, image lines that render as an inline photo or
+  a photo grid). Posts with `"draft": true` stay in the data and off the
+  internet.
+- The Office's Personal Website desk dispatches missions that do exactly
+  this; those missions must change nothing else in the repo. A media-upload
+  mission additionally copies its attached file from `.secgen/attachments/`
+  into `img/` before running the apply script.
+- Hand-authored and NOT part of the pipeline: the hero, about, brands,
+  PROTO band, and contact sections of `index.html`, plus `styles.css` and
+  `script.js` — ordinary edits there go through the normal mission lanes.
 
 ## Test gate
 

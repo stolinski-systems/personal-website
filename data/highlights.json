@@ -1,0 +1,41 @@
+{
+  "title": "RECENT HIGHLIGHTS",
+  "tag": "SPRING 2026",
+  "intro": "A season of validation for PROTO: from national competition to real investment, and conversations with the people shaping AI and education.",
+  "cards": [
+    {
+      "href": "journal.html#raikes",
+      "image": "img/raikes-startup-studio.jpg",
+      "alt": "PROTO selected for Raikes Startup Studio",
+      "imagePosition": "50% 20%",
+      "kicker": "RAIKES SCHOOL STARTUP STUDIO + INVEST NEBRASKA",
+      "title": "A $100K vote of confidence in PROTO",
+      "text": "PROTO earned a spot in the Jeffrey S. Raikes School's Startup Studio for 2026–27 and a $100K investment from Invest Nebraska. It's validation that robotics kits empowering the next generation of K-12 students matter, and the work is just getting started."
+    },
+    {
+      "href": "journal.html#hult",
+      "image": "img/tucson-audience.jpg",
+      "alt": "Hult Prize Nationals audience",
+      "kicker": "HULT PRIZE US NATIONALS, TUCSON, AZ",
+      "title": "One of 34 teams out of 15,000",
+      "text": "With Victor Chan and Carston Wiebe, we represented UNL at the Hult Prize Nationals at the University of Arizona, one of the first two Nebraska teams ever to compete. Competing against startups from across the country sharpened our mission, our goals, and our priorities."
+    },
+    {
+      "href": "journal.html#nueva",
+      "image": "img/sfo-nueva.jpg",
+      "alt": "At The Nueva School, San Francisco",
+      "kicker": "INNOVATIVE LEARNING CONFERENCE, THE NUEVA SCHOOL, SF",
+      "title": "Hearing the problem we're solving, firsthand",
+      "text": "Conversations with leaders from Apple, Meta, Visa, and Stanford's Human-Centered AI Institute, and educators from across the country, confirmed it: teachers are under-resourced for the AI era, a real gap is opening in K-12 STEM tools, and that's exactly the problem PROTO exists to solve."
+    },
+    {
+      "href": "journal.html#award",
+      "image": "img/student-entrepreneur.jpg",
+      "alt": "UNL Center for Entrepreneurship awards",
+      "imagePosition": "50% 15%",
+      "kicker": "UNL CENTER FOR ENTREPRENEURSHIP",
+      "title": "Student Entrepreneur Award",
+      "text": "Recognized as the Student Entrepreneur Award winner, robotics engineering major, PROTO, University of Nebraska-Lincoln College of Engineering. An honor shared with the whole team that shows up every day."
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "journal": {
+    "description": "Notes from the field: PROTO Robotics, the Hult Prize US Nationals, the Raikes Startup Studio, and more from Patrick Stolinski.",
+    "ogImage": "img/proto-team-2026.jpg"
+  },
+  "posts": [
+    {
+      "id": "proto",
+      "pill": "PROTO ROBOTICS",
+      "kicker": "ONGOING, PRESIDENT & CEO",
+      "title": "PROTO Robotics: making real engineering feel like an adventure",
+      "hero": "img/proto-team-2026.jpg",
+      "heroAlt": "The PROTO Robotics team",
+      "link": { "label": "PROTOROBOTICS.ORG →", "href": "https://protorobotics.org" },
+      "body": "PROTO Robotics is a robotics-education company on a mission to make real engineering feel like an adventure for elementary-age kids. We design and build the entire experience in-house: a LEGO-compatible robotics kit powered by our own custom RP2040-based controller board, a story-driven curriculum with hands-on missions that carry students from block coding to real Python, and a self-hosted learning platform where any device can program the robot.\n\nOur AI coding tutor gives every learner a patient guide, built with a privacy-first posture where kids never log in, chats are never stored, and COPPA compliance is designed in from day one.\n\n### What we're building\n\nWe're currently bringing our first consumer product to market. Behind the storefront sits a full stack we built ourselves, a family-facing platform with progress tracking and mission play, e-commerce and fulfillment, and PROTO Connect, our internal operations platform handling inventory, work orders, and kit management.\n\n![The PROTO controller board](img/proto-pcb.jpg)\n\nAlongside the product, we partner with Nebraska schools and educators through classroom pilots, Hour of Code events, and teacher outreach across the state, putting kits and curriculum in front of the elementary and middle school students they're designed for.\n\n### My role\n\nAs President and CEO, I lead a student team of roughly forty across hardware, software, curriculum, design, and outreach. I am responsible for our incredible team that makes our mission possible, keeping a company of student engineers shipping like a professional product organization."
+    },
+    {
+      "id": "hult",
+      "pill": "HULT PRIZE NATIONALS",
+      "kicker": "APRIL 17-18, 2026, TUCSON, AZ",
+      "title": "Hult Prize US Nationals: fresh perspective in the desert",
+      "hero": "img/tucson-team.jpg",
+      "heroAlt": "The team at sunset in the Tucson mountains",
+      "date": "2026-04-18",
+      "body": "Sometimes it takes a trip somewhere new to provide fresh perspective. My trip to Tucson, AZ with the PROTO Robotics team did just that.\n\nMy partners and I had the opportunity to represent the University of Nebraska-Lincoln at the Hult Prize Nationals Competition, hosted at the University of Arizona. We are proud to be one of the first two teams to represent Nebraska at this competition: out of 15,000 teams, we were one of the 34 that made it to the West Coast US Nationals.\n\n![The competition audience](img/tucson-audience.jpg)\n![Saguaro National Park](img/tucson-saguaro.jpg)\n\nCompeting against other student startups from across the country brings new perspective: new ideas, solutions, and insights. Engaging with these teams changed my thinking, considering fresh angles, refining our mission, clarifying our goals, and highlighting our priorities as we move forward. Thank you to Scott Hessell and his team for putting on a fantastic event!\n\nIn addition to the competition, we had the opportunity to explore Tucson, with trips to Saguaro National Park and the San Xavier Del Bac Mission. Trips like these would not be possible without the Nebraska Center for Entrepreneurship, thank you to Amanda Metcalf, Sam Nelson, and Mallory Krenk for bringing the Hult Prize to Nebraska this year."
+    },
+    {
+      "id": "award",
+      "pill": "STUDENT ENTREPRENEUR AWARD",
+      "kicker": "APRIL 14, 2026, LINCOLN, NE",
+      "title": "Student Entrepreneur Award, UNL Center for Entrepreneurship",
+      "hero": "img/student-entrepreneur.jpg",
+      "heroAlt": "Award winners at the UNL Center for Entrepreneurship",
+      "date": "2026-04-14",
+      "body": "Honored to be named the UNL Center for Entrepreneurship's Student Entrepreneur of the year, recognized as a robotics engineering major building PROTO within the University of Nebraska-Lincoln College of Engineering.\n\nAwards like this belong to the whole team. Forty students showing up every day, turning a shared mission into a shared reality, that's what's being recognized here."
+    },
+    {
+      "id": "raikes",
+      "pill": "RAIKES + $100K",
+      "kicker": "APRIL 2, 2026, LINCOLN, NE",
+      "title": "PROTO joins Raikes Startup Studio, with $100K from Invest Nebraska",
+      "hero": "img/raikes-startup-studio.jpg",
+      "heroAlt": "PROTO selected for the Raikes School Startup Studio",
+      "date": "2026-04-02",
+      "body": "New opportunities are on the horizon, and I couldn't be more proud to share the news: PROTO Robotics has officially earned a spot in the Jeffrey S. Raikes School of Computer Science and Management's Startup Studio Program for the 2026-27 school year, and received a $100K investment from Invest Nebraska.\n\nThis isn't just a milestone. It's validation that what we're building, robotics education kits that empower the next generation of K-12 students, matters.\n\nNone of this happens without an incredible team that shows up every day and turns a shared mission into a shared reality. And none of it happens without the support of the UNL College of Engineering, Nebraska Center for Entrepreneurship, Nebraska College of Business, Jake Koperski, Rob Nickolaus, the competition judges, and the broader University of Nebraska-Lincoln community that believes in our team. Congratulations to all of our fellow teams on their selection into the program, the work is just getting started."
+    },
+    {
+      "id": "nueva",
+      "pill": "SAN FRANCISCO",
+      "kicker": "MARCH 12-13, 2026, SAN FRANCISCO, CA",
+      "title": "The Innovative Learning Conference at The Nueva School",
+      "hero": "img/sfo-nueva.jpg",
+      "heroAlt": "At The Nueva School",
+      "date": "2026-03-13",
+      "body": "I had the opportunity to attend the 2026 Innovative Learning Conference at The Nueva School in San Francisco, made possible through the Nebraska Center for Entrepreneurship. I can't overstate how much I took away from this experience, hearing from and connecting with Kevin Lynch (VP of Technology, Apple), Chris Cox (CPO, Meta), Fei-Fei Li (Stanford Human-Centered AI Institute), Samira Rahmatullah (Visa), Andrew Hall (Stanford GSB), and educators from across the country.\n\n### A few thoughts I keep coming back to\n\n**Our teachers are being left behind.** Fei-Fei Li made the point that K-12 educators are under-resourced, and now they're being thrown into the most transformative technology of our lifetimes with almost no support. The most important impact of AI should be educational, but only if we invest in the people doing the teaching first.\n\n**The next wave of AI is bigger than most realize.** Samira Rahmatullah walked through the shift from generative to agentic AI, systems that take actions on your behalf. A single person could soon operate with the output of a 30-person team. The opportunity is real, but the identity, governance, and accountability frameworks don't exist yet. We're building the plane while flying it.\n\n**AI is already changing how the best researchers work.** Andrew Hall used Claude Code over a single holiday break to fully replicate and extend a published research paper, new data, new analyses, updated findings. What would have taken a team of graduate students weeks was largely done in days. That productivity gap is becoming impossible to ignore.\n\n**There's a genuine gap opening in STEM education.** LEGO Education is discontinuing Spike Prime and replacing it with a product that costs far more, offers less functionality, and removes coding instruction. Schools stretching their budgets now have no clear path forward. This is exactly the problem my team at PROTO Robotics is working to solve, and hearing it echoed by educators nationwide was all the validation we needed.\n\n![Visiting Stanford University](img/sfo-stanford.jpg)\n![Golden Gate Bridge](img/sfo-golden-gate.jpg)\n\nThrough a connection made with Addison Eftekhari at the conference, we also got to visit Stanford's campus and spend time with students in the Civil & Environmental Engineering Department, one of the best experiences of the trip. Some of the best opportunities come from just saying yes.\n\nThis experience reminded me that the problems we're working on at PROTO Robotics are real, urgent, and felt by educators everywhere. Grateful to the Nebraska Center for Entrepreneurship, Nebraska College of Business, and University of Nebraska Foundation for making it possible to hear that firsthand."
+    }
+  ]
+}

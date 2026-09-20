@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>The Journal · Patrick Stolinski</title>
+    <link>https://patrickstolinski.com/journal.html</link>
+    <description>Notes from the field: PROTO Robotics, the Hult Prize US Nationals, the Raikes Startup Studio, and more from Patrick Stolinski.</description>
+    <item>
+      <title>PROTO Robotics: making real engineering feel like an adventure</title>
+      <link>https://patrickstolinski.com/journal.html#proto</link>
+      <guid isPermaLink="true">https://patrickstolinski.com/journal.html#proto</guid>
+      <description>PROTO Robotics is a robotics-education company on a mission to make real engineering feel like an adventure for elementary-age kids. We design and build the entire experience in-house: a LEGO-compatible robotics kit powered by our own custom RP2040-based controller board, a story-driven curriculum with hands-on missions that carry students from block coding to real Python, and a self-hosted learning platform where any device can program the robot.</description>
+    </item>
+    <item>
+      <title>Hult Prize US Nationals: fresh perspective in the desert</title>
+      <link>https://patrickstolinski.com/journal.html#hult</link>
+      <guid isPermaLink="true">https://patrickstolinski.com/journal.html#hult</guid>
+      <pubDate>Sat, 18 Apr 2026 12:00:00 GMT</pubDate>
+      <description>Sometimes it takes a trip somewhere new to provide fresh perspective. My trip to Tucson, AZ with the PROTO Robotics team did just that.</description>
+    </item>
+    <item>
+      <title>Student Entrepreneur Award, UNL Center for Entrepreneurship</title>
+      <link>https://patrickstolinski.com/journal.html#award</link>
+      <guid isPermaLink="true">https://patrickstolinski.com/journal.html#award</guid>
+      <pubDate>Tue, 14 Apr 2026 12:00:00 GMT</pubDate>
+      <description>Honored to be named the UNL Center for Entrepreneurship&apos;s Student Entrepreneur of the year, recognized as a robotics engineering major building PROTO within the University of Nebraska-Lincoln College of Engineering.</description>
+    </item>
+    <item>
+      <title>PROTO joins Raikes Startup Studio, with $100K from Invest Nebraska</title>
+      <link>https://patrickstolinski.com/journal.html#raikes</link>
+      <guid isPermaLink="true">https://patrickstolinski.com/journal.html#raikes</guid>
+      <pubDate>Thu, 02 Apr 2026 12:00:00 GMT</pubDate>
+      <description>New opportunities are on the horizon, and I couldn&apos;t be more proud to share the news: PROTO Robotics has officially earned a spot in the Jeffrey S. Raikes School of Computer Science and Management&apos;s Startup Studio Program for the 2026-27 school year, and received a $100K investment from Invest Nebraska.</description>
+    </item>
+    <item>
+      <title>The Innovative Learning Conference at The Nueva School</title>
+      <link>https://patrickstolinski.com/journal.html#nueva</link>
+      <guid isPermaLink="true">https://patrickstolinski.com/journal.html#nueva</guid>
+      <pubDate>Fri, 13 Mar 2026 12:00:00 GMT</pubDate>
+      <description>I had the opportunity to attend the 2026 Innovative Learning Conference at The Nueva School in San Francisco, made possible through the Nebraska Center for Entrepreneurship. I can&apos;t overstate how much I took away from this experience, hearing from and connecting with Kevin Lynch (VP of Technology, Apple), Chris Cox (CPO, Meta), Fei-Fei Li (Stanford Human-Centered AI Institute), Samira Rahmatullah (Visa), Andrew Hall (Stanford GSB), and educators from across the country.</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,144 @@
+{
+  "title": "THE FLIGHT LOG",
+  "tag": "2021 – PRESENT",
+  "intro": "First solo to CFI in 42 months, with internships in airfield design, UAS survey, and business aviation along the way.",
+  "entries": [
+    {
+      "date": "2026.06",
+      "dot": "navy",
+      "title": "Soloed My First Three Students",
+      "org": "CFI",
+      "text": "Three primary students sent on their first solo flights in a single month, each within 10 hours of my instruction. One of my top milestones.",
+      "image": "img/final-approach.jpg"
+    },
+    {
+      "date": "2026.04.17",
+      "dot": "navy",
+      "title": "Hult Prize US Nationals",
+      "org": "PROTO",
+      "text": "One of 34 teams from 15,000 worldwide, and one of the first two Nebraska teams ever, competing at the University of Arizona, April 17-18.",
+      "image": "img/tucson-team.jpg"
+    },
+    {
+      "date": "2026.04.14",
+      "dot": "mid",
+      "title": "Student Entrepreneur Award",
+      "org": "UNL",
+      "text": "UNL Center for Entrepreneurship Student Entrepreneur Award, robotics engineering major, PROTO, College of Engineering.",
+      "image": "img/student-entrepreneur.jpg"
+    },
+    {
+      "date": "2026.04.02",
+      "dot": "navy",
+      "title": "Raikes Startup Studio + $100K Investment",
+      "org": "PROTO",
+      "text": "PROTO earned a spot in the Raikes School Startup Studio for 2026-27 and a $100K investment from Invest Nebraska.",
+      "image": "img/raikes-startup-studio.jpg"
+    },
+    {
+      "date": "2026.03.12",
+      "dot": "mid",
+      "title": "Innovative Learning Conference",
+      "org": "THE NUEVA SCHOOL",
+      "text": "San Francisco with the Nebraska Center for Entrepreneurship, learning from leaders at Apple, Meta, Visa, and Stanford HAI, plus a visit with Stanford engineering students.",
+      "image": "img/sfo-stanford.jpg"
+    },
+    {
+      "date": "2025.11",
+      "dot": "navy",
+      "title": "Managing Director",
+      "org": "TANGO MIKE AVIATION",
+      "text": "Leading aircraft marketing, brokering, closeout, and acquisitions for a brokerage team with over 50 years of combined experience, evolved from building their web platform.",
+      "image": "img/aircraft-sales.jpg"
+    },
+    {
+      "date": "2025.05",
+      "dot": "navy",
+      "title": "Flight Technical Programs Intern",
+      "org": "NETJETS",
+      "text": "Designed and validated instrument procedures in business-jet simulators; built digital ops tooling for flight technical teams.",
+      "image": "img/netjets_exp.JPEG"
+    },
+    {
+      "date": "2025.03",
+      "dot": "navy",
+      "title": "Civil Air Patrol Instructor Pilot",
+      "org": "CAP",
+      "text": "Instructing CAP aircrew toward Air Force Assigned Missions in Cessna 182 & 172 aircraft.",
+      "image": "img/cap.JPEG"
+    },
+    {
+      "date": "2025.01",
+      "dot": "mid",
+      "title": "Certified Flight Instructor",
+      "text": "Earned the FAA Flight Instructor Certificate, the privilege of teaching people how to fly.",
+      "image": "img/cfi.JPEG"
+    },
+    {
+      "date": "2024.08",
+      "dot": "mid",
+      "title": "Commercial Multi-Engine Rating",
+      "text": "FAA Commercial Multi-Engine Land rating.",
+      "image": "img/cmel.JPEG"
+    },
+    {
+      "date": "2024.06",
+      "dot": "mid",
+      "title": "Commercial Pilot Certificate",
+      "text": "FAA Commercial Pilot Certificate, Airplane Single Engine Land.",
+      "image": "img/csel.JPEG"
+    },
+    {
+      "date": "2024.05",
+      "dot": "navy",
+      "title": "Airfield Design Intern",
+      "org": "HDR, INC.",
+      "text": "Supported DOD and FAA airfield programs; streamlined CAD workflows across civil design disciplines.",
+      "image": "img/hdr_exp1.jpeg"
+    },
+    {
+      "date": "2024.03",
+      "dot": "navy",
+      "title": "Founded PROTO Robotics",
+      "org": "PROTO",
+      "text": "President & CEO, leading a 40-member student team across hardware, software, curriculum, design, and outreach to make engineering an adventure for elementary-age kids.",
+      "image": "img/prototeam.jpeg"
+    },
+    {
+      "date": "2024.01",
+      "dot": "mid",
+      "title": "Instrument Rating",
+      "text": "FAA Instrument Rating, Airplane.",
+      "image": "img/ira.JPEG"
+    },
+    {
+      "date": "2023.05",
+      "dot": "navy",
+      "title": "UAS / Survey Intern",
+      "org": "TD2, INC.",
+      "text": "LiDAR and photogrammetry missions for infrastructure projects; survey-grade deliverables from field to office.",
+      "image": "img/td2_exp1.jpg"
+    },
+    {
+      "date": "2022.12",
+      "dot": "sky",
+      "title": "Seaplane Rating",
+      "text": "FAA Airplane Single Engine Sea rating.",
+      "image": "img/ases.JPEG"
+    },
+    {
+      "date": "2022.05",
+      "dot": "sky",
+      "title": "Private Pilot Certificate",
+      "text": "FAA Private Pilot Certificate, Airplane Single Engine Land.",
+      "image": "img/asel.JPEG"
+    },
+    {
+      "date": "2021.07",
+      "dot": "sky",
+      "title": "First Solo",
+      "text": "First solo flight in an airplane. Where it all started.",
+      "image": "img/solo.JPEG"
+    }
+  ]
+}

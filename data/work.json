@@ -1,0 +1,61 @@
+{
+  "title": "BY DESIGN: THE WORK",
+  "tag": "SEVEN PROJECTS",
+  "intro": "From web platforms to hardware systems: projects that merge creativity, discipline, and measurable impact.",
+  "tiles": [
+    {
+      "variant": "featured",
+      "href": "journal.html#proto",
+      "image": "img/proto-team-2026.jpg",
+      "alt": "The PROTO Robotics team",
+      "title": "PROTO ROBOTICS",
+      "desc": "Making real engineering feel like an adventure for elementary-age kids: a LEGO-compatible robotics kit on our own RP2040 controller, the story-driven \"Star Lantern\" curriculum, and Finn, a privacy-first AI coding tutor.",
+      "chips": ["ROBOTICS KITS", "CURRICULUM", "AI TUTOR"]
+    },
+    {
+      "href": "journal.html#proto",
+      "image": "img/teammanager.jpg",
+      "alt": "PROTO Connect",
+      "title": "PROTO CONNECT",
+      "desc": "Internal ops platform: inventory, work orders, kit management."
+    },
+    {
+      "image": "img/flightfitters.jpg",
+      "alt": "FlightFitters",
+      "title": "FLIGHTFITTERS",
+      "desc": "Part 107 drone operations: aerial capture & 3D modeling."
+    },
+    {
+      "image": "img/photogrammetry.jpg",
+      "alt": "Photogrammetry",
+      "title": "PHOTOGRAMMETRY",
+      "desc": "Neighborhood-scale 3D mapping with LiDAR workflows."
+    },
+    {
+      "image": "img/aircraft-sales.jpg",
+      "alt": "Aircraft sales website",
+      "title": "TANGO MIKE AVIATION",
+      "desc": "Managing Director for aircraft marketing, brokering, closeout & acquisitions."
+    },
+    {
+      "image": "img/carb.png",
+      "alt": "3D printed carburetor",
+      "title": "3D-PRINTED CARBURETOR",
+      "desc": "Functional prototype for teaching & R&D. Nov 2024."
+    },
+    {
+      "image": "img/g1000-blocker.jpg",
+      "alt": "G1000 panel blocker CAD model",
+      "title": "G1000 PANEL BLOCKER",
+      "desc": "3D-printed partial-panel training device for the Garmin G1000. Jul 2026."
+    },
+    {
+      "variant": "wide",
+      "image": "img/proto-kids.jpg",
+      "alt": "Kids building with PROTO kits",
+      "imagePosition": "50% 35%",
+      "title": "THE PROTO PLATFORM",
+      "desc": "Learning platform, e-commerce & fulfillment, and PROTO Connect ops. A full stack built in-house."
+    }
+  ]
+}
