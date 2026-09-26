@@ -4,6 +4,14 @@
   "intro": "First solo to CFI in 42 months, with internships in airfield design, UAS survey, and business aviation along the way.",
   "entries": [
     {
+      "date": "2026.08",
+      "dot": "mid",
+      "title": "Certified Flight Instructor – Instrument",
+      "org": "CFII",
+      "text": "Earned the FAA Flight Instructor Instrument rating, the privilege of teaching pilots to fly by reference to instruments alone.",
+      "image": "img/g1000-blocker.jpg"
+    },
+    {
       "date": "2026.06",
       "dot": "navy",
       "title": "Soloed My First Three Students",
